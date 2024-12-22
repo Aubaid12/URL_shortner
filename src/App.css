@@ -1,0 +1,56 @@
+.Main{
+  display: flex;
+
+}
+
+.form_box{
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+}
+
+.form_outerbox{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  background-color: #384bb4;
+}
+
+.input_form{
+  height: 5vh;
+  width: 20vw;
+}
+
+.btn{
+  height: 5.5vh;
+  background-color: chartreuse;
+}
+
+.bg_image{
+  width: 75%;
+  height: auto;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vh;
+  align-items: center;
+}
+
+.shortned{
+  color: gold;
+  font-weight: bolder;
+}
+
+.float{
+  animation: move 3s linear infinite
+}
+@keyframes move {
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(-20px);}
+  100%{transform: translateY(0px);}
+}
