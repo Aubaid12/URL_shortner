@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS 
-import random
 import string
 import sqlite3
 import re
+import hashlib
 
 app = Flask(__name__)
 
@@ -18,8 +18,9 @@ def connected_db():
     return connection
 
 def create_code(url):
-    code = "".join(random.choices(string.ascii_letters+string.digits,k=7))
+    #code = "".join(random.choices(string.ascii_letters+string.digits,k=7))
     connection = connected_db()
+    code = hashlib.blake2b(str(url).encode(),key="1234".encode(),digest_size=4).hexdigest()
     cursor = connection.cursor()
     cursor.execute("INSERT INTO URL_TABLE(ORIGINAL_URL, SHORTENED_URL) values(?,?)", (url,code))
     connection.commit()
@@ -75,7 +76,7 @@ def redirect_url(code):
     return redirect(original_url[0][0])
 
 
-
-app.run(debug = True)
+if __name__ == "__main__":
+    app.run(debug = False)
 
 
