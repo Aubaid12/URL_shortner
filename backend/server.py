@@ -63,7 +63,7 @@ def generate_url():
     if not match_pattern:
         return jsonify("Please enter a valid URL")
     shortned_url = check_url(url)
-    return jsonify("http://localhost:5000/"+shortned_url) , 200
+    return jsonify("https://url-shortner-4eg5.onrender.com/"+shortned_url) , 200
 
 
 

@@ -8,7 +8,7 @@ function App() {
   const [shortned_url, setShortned_url] = useState("")
   
   const callbackend = async()=>{
-    var response = await axios.get("http://localhost:5000/url_shortner", {params:{"url":url}})
+    var response = await axios.get("https://url-shortner-4eg5.onrender.com/url_shortner", {params:{"url":url}})
     setShortned_url(response.data)
   } 
   
